@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import {
   useReactTable,
   getCoreRowModel,
@@ -16,19 +17,20 @@ interface TaxesTableProps {
 const columnHelper = createColumnHelper<Tax>();
 
 export const TaxesTable = ({ data, onEdit }: TaxesTableProps) => {
-  const columns: ColumnDef<Tax, unknown>[] = [
-    columnHelper.accessor('name', {
-      header: 'Name',
-      cell: (info) => info.getValue(),
-    }),
-    columnHelper.accessor('country', {
-      header: 'Country',
-      cell: (info) => info.getValue(),
-    }),
-    columnHelper.display({
-      id: 'actions',
-      header: 'Actions',
-      cell: ({ row }) => (
+  const columns = useMemo(
+    () => [
+      columnHelper.accessor('name', {
+        header: 'Name',
+        cell: (info) => info.getValue(),
+      }),
+      columnHelper.accessor('country', {
+        header: 'Country',
+        cell: (info) => info.getValue(),
+      }),
+      columnHelper.display({
+        id: 'actions',
+        header: 'Actions',
+        cell: ({ row }) => (
         <button
           className="edit-button"
           onClick={() => onEdit(row.original)}
@@ -52,11 +54,13 @@ export const TaxesTable = ({ data, onEdit }: TaxesTableProps) => {
         </button>
       ),
     }),
-  ];
+    ],
+    [onEdit]
+  );
 
-  const table = useReactTable({
+  const table = useReactTable<Tax>({
     data,
-    columns,
+    columns: columns as ColumnDef<Tax>[],
     getCoreRowModel: getCoreRowModel(),
   });
 
