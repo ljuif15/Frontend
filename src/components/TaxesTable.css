@@ -1,0 +1,80 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.taxes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.taxes-table thead {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.taxes-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.taxes-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.15s ease;
+}
+
+.taxes-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.taxes-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.taxes-table td {
+  padding: 12px 16px;
+  color: #111827;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 16px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: #6b7280;
+  transition: all 0.2s;
+}
+
+.edit-button:hover {
+  background-color: #f3f4f6;
+  color: #3b82f6;
+}
+
+.edit-button:active {
+  transform: scale(0.95);
+}
+
+.edit-button svg {
+  display: block;
+}
+
